@@ -5,13 +5,15 @@ import { isAuthenticated } from '../middlewares/isAuthenticated';
 
 export const userRouter = Router();
 
+//Rota temporaria por preguica de abrir o terminal do mongo
 userRouter.get('/', async (request, response) => {
     try {
-        const users = await User.find();
+        const users = await User.find()
+            .populate('posts');
 
         return response.json(users);
     } catch (err) {
-        return response.json();
+        return response.status(400).json({ error: err.message });
     }
 });
 

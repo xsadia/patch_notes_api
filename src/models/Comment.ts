@@ -10,8 +10,12 @@ const CommentSchema = new mongoose.Schema({
         ref: 'Post'
     },
     owner: {
-        type: mongoose.Schema.Types.ObjectId.cast,
-        ref: 'user'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 });
 
