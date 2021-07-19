@@ -4,9 +4,11 @@ import { commentsRouter } from './routes/comments.routes';
 import { postsRouter } from './routes/posts.routes';
 import { sessionRouter } from './routes/session.routes';
 import { userRouter } from './routes/user.routes';
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use('/users', userRouter);
 
